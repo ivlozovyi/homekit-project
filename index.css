@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap');
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-bg: #e0e5eb;
+    --gradient: linear-gradient(90deg,#a894e6,#7e77ee);
+    --grey: #f0f0f0;
+    --light: #fff;
+    --light-purple: #7e77ee;
+    font-family: 'Rubik', sans-serif;
+    background: var(--color-bg);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile__container{
+    width: 350px;
+    height: 730px;
+    background: var(--light);
+    border-radius: 20px;
+    box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.4);
+    display: grid;
+    grid-template-rows: 48px 1fr 62px;
+}
+.mobile__header, .mobile__footer {
+    align-self: center;
+    justify-self: center;
+}
+.mobile__content {
+}
+.selectbox {
+    width: max-content;
+    margin: 0 auto;
+    position: relative;
+    margin-bottom: 20px;
+}
+.selectbox__selected {
+    font-size: 18px;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+    background-color: var(--light);
+}
+.ic_arrow{
+    font-size: 0.7rem;
+    margin-left: 10px;
+}
+.selectbox.open .selectbox__list{
+    top: 120%;
+    max-height: 200px;
+}
+.selectbox__list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 4px 0;
+    max-height: 0;
+    overflow: hidden;
+    border-radius: 3px;
+    background-color: var(--light);
+    transition: all 0.3s  ease-in-out;
+}
+.selectbox__item {
+    cursor: pointer;
+    
+}
+.selectbox__item.selected,
+.selectbox__item:hover{
+    color: var(--light-purple);
+    font-weight: 600;
+}
+.selectbox__item:not(:last-child){
+    margin-bottom: 4px;
+}
+
+.mobile__rooms {
+    display: grid;
+    grid-template-columns: repeat(2, 150px);
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+}
+.mobile__room {
+    display: grid;
+    grid-template-rows: 130px 50px;
+    align-content: center;
+    text-align: center;
+    background-color: var(--grey);
+    border-radius: 12px;
+}
+.mobile__room i {
+    align-self: center;
+    font-size: 5rem;
+}

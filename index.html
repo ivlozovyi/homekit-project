@@ -5,9 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homekit</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="fonts/style.css">
 </head>
 <body>
-    
+    <div class="mobile">
+        <div class="mobile__container">
+            <header class="mobile__header">
+                <img src="img/top.svg">
+            </header>
+            <main class="mobile__content">
+                <div class="mobile__selectbox selectbox">
+                    <div class="selectbox__selected">
+                        <span>Select room</span>
+                        <i class="ic_arrow"></i>
+                    </div>
+                    <div class="selectbox__list">
+                        <div class="selectbox__item selected">All Rooms</div>
+                        <div class="selectbox__item">Living Room</div>
+                        <div class="selectbox__item">Bedroom</div>
+                        <div class="selectbox__item">Kitchen</div>
+                        <div class="selectbox__item">Bathroom</div>
+                        <div class="selectbox__item">Studio</div>
+                        <div class="selectbox__item">Washing Room</div>
+                    </div>
+                </div>
+                <div class="mobile__rooms">
+                    <div class="mobile__room">
+                        <i class="ic_livingroom"></i>
+                        <span>Living Room</span>
+                    </div>
+                    <div class="mobile__room">
+                        <i class="ic_bedroom"></i>
+                        <span>Bedroom</span>
+                    </div>
+                    <div class="mobile__room">
+                        <i class="ic_kitchen"></i>
+                        <span>Kitchen</span>
+                    </div>
+                    <div class="mobile__room">
+                        <i class="ic_bathroom"></i>
+                        <span>Bathroom</span>
+                    </div>
+                    <div class="mobile__room">
+                        <i class="ic_studio"></i>
+                        <span>Studio</span>
+                    </div>
+                    <div class="mobile__room">
+                        <i class="ic_washingroom"></i>
+                        <span>Washing Room</span>
+                    </div>
+                </div>
+            </main>
+            <footer class="mobile__footer">
+                <img src="img/bottom.svg">
+            </footer>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
