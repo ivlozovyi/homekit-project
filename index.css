@@ -12,6 +12,7 @@
     --grey: #f0f0f0;
     --light: #fff;
     --light-purple: #7e77ee;
+    --transition: all 0.3s  ease-in-out;
     font-family: 'Rubik', sans-serif;
     background: var(--color-bg);
     height: 100vh;
@@ -36,21 +37,32 @@
 .mobile__content {
 }
 .selectbox {
-    width: max-content;
+    width: 150px;
     margin: 0 auto;
     position: relative;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 .selectbox__selected {
     font-size: 18px;
     font-weight: 500;
     position: relative;
-    z-index: 1;
+    z-index: 2;
     background-color: var(--light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.selectbox.open .ic_arrow{
+    transform: rotate(-180deg);
 }
 .ic_arrow{
+    display: inline-block;
     font-size: 0.7rem;
     margin-left: 10px;
+    transform: rotate(0deg);
+    transition: var(--transition);
 }
 .selectbox.open .selectbox__list{
     top: 120%;
@@ -59,14 +71,15 @@
 .selectbox__list {
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
-    padding: 4px 0;
+    left: -12px;
+    right: -12px;
+    padding: 8px 12px;
     max-height: 0;
     overflow: hidden;
     border-radius: 3px;
     background-color: var(--light);
-    transition: all 0.3s  ease-in-out;
+    transition: var(--transition);
+    z-index: 1;
 }
 .selectbox__item {
     cursor: pointer;
@@ -95,8 +108,16 @@
     text-align: center;
     background-color: var(--grey);
     border-radius: 12px;
+    cursor: pointer;
 }
 .mobile__room i {
     align-self: center;
     font-size: 5rem;
+    opacity: 0.7;
+}
+
+.mobile__room.selected {
+    background: var(--gradient);
+    color: var(--light);
+    opacity: 1;
 }

@@ -16,41 +16,41 @@
             <main class="mobile__content">
                 <div class="mobile__selectbox selectbox">
                     <div class="selectbox__selected">
-                        <span>Select room</span>
+                        <span>All rooms</span>
                         <i class="ic_arrow"></i>
                     </div>
                     <div class="selectbox__list">
-                        <div class="selectbox__item selected">All Rooms</div>
-                        <div class="selectbox__item">Living Room</div>
-                        <div class="selectbox__item">Bedroom</div>
-                        <div class="selectbox__item">Kitchen</div>
-                        <div class="selectbox__item">Bathroom</div>
-                        <div class="selectbox__item">Studio</div>
-                        <div class="selectbox__item">Washing Room</div>
+                        <div data-room="all" class="selectbox__item selected">All Rooms</div>
+                        <div data-room="livingroom" class="selectbox__item">Living Room</div>
+                        <div data-room="bedroom" class="selectbox__item">Bedroom</div>
+                        <div data-room="kitchen" class="selectbox__item">Kitchen</div>
+                        <div data-room="bathroom" class="selectbox__item">Bathroom</div>
+                        <div data-room="studio" class="selectbox__item">Studio</div>
+                        <div data-room="washingroom" class="selectbox__item">Washing Room</div>
                     </div>
                 </div>
-                <div class="mobile__rooms">
-                    <div class="mobile__room">
+                <div id="rooms" class="mobile__rooms">
+                    <div data-room="livingroom" class="mobile__room ">
                         <i class="ic_livingroom"></i>
                         <span>Living Room</span>
                     </div>
-                    <div class="mobile__room">
+                    <div data-room="bedroom"class="mobile__room">
                         <i class="ic_bedroom"></i>
                         <span>Bedroom</span>
                     </div>
-                    <div class="mobile__room">
+                    <div data-room="kitchen" class="mobile__room">
                         <i class="ic_kitchen"></i>
                         <span>Kitchen</span>
                     </div>
-                    <div class="mobile__room">
+                    <div data-room="bathroom" class="mobile__room">
                         <i class="ic_bathroom"></i>
                         <span>Bathroom</span>
                     </div>
-                    <div class="mobile__room">
+                    <div data-room="studio" class="mobile__room">
                         <i class="ic_studio"></i>
                         <span>Studio</span>
                     </div>
-                    <div class="mobile__room">
+                    <div data-room="washingroom" class="mobile__room">
                         <i class="ic_washingroom"></i>
                         <span>Washing Room</span>
                     </div>
