@@ -96,7 +96,9 @@
 
 .mobile__rooms {
     display: grid;
-    grid-template-columns: repeat(2, 150px);
+    display: none;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 15px;
     justify-content: center;
     align-items: center;
     gap: 14px;
@@ -120,4 +122,144 @@
     background: var(--gradient);
     color: var(--light);
     opacity: 1;
+}
+
+.settings{
+    padding: 0 15px;
+}
+.settings__tabs{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 95px;
+    gap: 15px;
+}
+.option {
+    padding-top: 10px;
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+    align-content: center;
+    text-align: center;
+    font-size: 12px;
+    background-color: var(--grey);
+    border-radius: 12px;
+    cursor: pointer;
+}
+.option.selected {
+    background: var(--gradient);
+    color: var(--light);
+    opacity: 1;
+}
+.option i {
+    align-self: center;
+    font-size: 3rem;
+    opacity: 0.7;
+}
+.settings__screen-title{
+    text-align: center;
+    margin: 20px 0 15px;
+    font-weight: 500;
+}
+.temperature-button {
+    width: 240px;
+    height: 240px;
+    margin: 0 auto;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    position: relative;
+}
+.temperature-button__info{
+    position: relative;
+    font-size: 32px;
+    width: 70%;
+    height: 70%;
+    border-radius: 70%;
+    background-color: var(--light);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.temperature-button__info::before{
+    content: '';
+    display: block;
+    position: absolute;
+    left: 4%;
+    right: 4%;
+    top:4% ;
+    bottom: 4%;
+    border-radius: 100%;
+    border: 1px solid #000;
+    opacity: 0.3;
+}
+.dots-box {
+    transform: rotate(5deg);
+    transform-origin: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.dots, .line, .line-active, .round, .separate-dots, .separate-lines {
+    fill: transparent;
+    stroke: var(--grey);
+    stroke-width: 3px;
+    stroke-linecap: round;
+    stroke-dasharray: 0 21;
+    transition: all 0.5s ease-in-out;
+}
+.line, .line-active, .round{
+    stroke-width: 1px;
+    stroke-dasharray: 276 276;
+    transform: rotate(48deg);
+    transform-origin: center ;
+}
+.line-active {
+    stroke: black;
+    stroke-dasharray: 54 276; /*from 54 to 276*/
+}
+.round{
+    stroke-width: 6px;
+    stroke-dasharray: 0 276;
+    transform: rotate(48deg); /*from -240 to 48*/
+}
+.separate-dots, .separate-lines{
+    stroke: white;
+    transform: rotate(60deg);
+    transform-origin: center;
+}
+.separate-dots{
+    stroke-dasharray: 40 313;
+}
+.separate-lines{
+    transform: rotate(49deg);
+    stroke-dasharray: 53 276;
+}
+.power{
+    background: var(--gradient);
+    color: var(--light);
+    width: 44px;
+    height: 44px;
+    border-radius: 44px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2px;
+    margin: auto;
+}
+.power-label{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 300;
+}
+.set-button{
+    background:var(--gradient);
+    color: var(--light);
+    width: 250px;
+    margin: 15px auto 0;
+    border-radius: 100px;
+    text-align: center;
+    padding: 16px;
 }

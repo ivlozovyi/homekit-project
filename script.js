@@ -48,6 +48,9 @@ function selectRoom(room) {
     if(room !== 'all'){
         const newSelectedRoom = rooms.querySelector(`[data-room=${room}`);
         newSelectedRoom.classList.add('selected');
+        renderScreen(false);
+    } else {
+        renderScreen(true);
     }
     const selectedSelectboxRoom = selectbox.querySelector('.selectbox__item.selected');
     selectedSelectboxRoom.classList.remove('selected');
@@ -63,3 +66,13 @@ rooms.querySelectorAll('.mobile__room').forEach(element => {
         selectRoom(room);
     }) 
 })
+
+function renderScreen(isRooms) {
+    setTimeout( () => {
+        if(isRooms) {
+            rooms.style.display = "grid";
+        } else {
+            rooms.style.display = "none"
+        }
+    }, 300)
+}
