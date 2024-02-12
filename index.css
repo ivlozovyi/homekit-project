@@ -125,6 +125,8 @@
 }
 
 .settings{
+    display: none;
+    display: block;
     padding: 0 15px;
 }
 .settings__tabs{
@@ -133,7 +135,7 @@
     grid-template-rows: 95px;
     gap: 15px;
 }
-.option {
+.tab {
     padding-top: 10px;
     display: grid;
     grid-template-rows: 2fr 1fr;
@@ -144,20 +146,32 @@
     border-radius: 12px;
     cursor: pointer;
 }
-.option.selected {
+.tab.selected {
     background: var(--gradient);
     color: var(--light);
     opacity: 1;
 }
-.option i {
+.tab i {
     align-self: center;
     font-size: 3rem;
     opacity: 0.7;
+}
+.settings__screen{
+    display: none;
+}
+.settings__screen.selected{
+    display: block;
 }
 .settings__screen-title{
     text-align: center;
     margin: 20px 0 15px;
     font-weight: 500;
+}
+.settings__screen-icon{
+    text-align: center;
+    font-size: 30px;
+    color: #666;
+    margin-bottom: 15px;
 }
 .temperature-button {
     width: 240px;
@@ -167,6 +181,7 @@
     align-items: center;
     justify-items: center;
     position: relative;
+    cursor: pointer;
 }
 .temperature-button__info{
     position: relative;
@@ -206,7 +221,7 @@
     stroke-width: 3px;
     stroke-linecap: round;
     stroke-dasharray: 0 21;
-    transition: all 0.5s ease-in-out;
+    transition:var(--transition);
 }
 .line, .line-active, .round{
     stroke-width: 1px;
@@ -217,11 +232,12 @@
 .line-active {
     stroke: black;
     stroke-dasharray: 54 276; /*from 54 to 276*/
+    transition: var(--transition);
 }
 .round{
     stroke-width: 6px;
     stroke-dasharray: 0 276;
-    transform: rotate(48deg); /*from -240 to 48*/
+    transform: rotate(-240deg); /*from -240 to 48*/
 }
 .separate-dots, .separate-lines{
     stroke: white;
@@ -247,6 +263,10 @@
     justify-content: center;
     padding-bottom: 2px;
     margin: auto;
+    cursor: pointer;
+}
+.power.off {
+    background: var(--grey);
 }
 .power-label{
     text-align: center;
@@ -262,4 +282,47 @@
     border-radius: 100px;
     text-align: center;
     padding: 16px;
+    cursor: pointer;
+}
+.slider {
+    width: 100px;
+    height: 250px;
+    margin: auto;
+    background-color: var(--grey);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+}
+.slider__progress {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient);
+    color: var(--light);
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    font-size: 18px;
+    min-height: 30px;
+    transition: var(--transition);
+    height: 45%;
+}
+.switch{
+    width: 60px;
+    height: 28px;
+    background: var(--grey);
+    margin: 30px auto 0;
+    border-radius: 60px;
+    position: relative;
+}
+.switch div{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 28px;
+    background: var(--gradient);
+    transition: var(--transition);
 }
