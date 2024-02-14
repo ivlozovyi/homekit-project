@@ -20,7 +20,8 @@ const dom = {
     swtch: {
         lights: document.getElementById('lights-power'),
         humidity: document.getElementById('humidity-power'),
-    }
+    },
+
 
 }
 
@@ -88,7 +89,7 @@ const roomsData = {
 let activeRoom = 'all';
 let activeTab = 'temperature';
 
-const { selectbox, selectboxList, selectboxSelected, rooms, selectboxItem, settings, settingsPanel, settingsTabs, temperatureLine, temperatureRound, temperatureInfo, temperatureButton, temperatureSaveButton, temperaturePowerButton, sliders, swtch } = dom;
+const { selectbox, selectboxList, selectboxSelected, rooms, selectboxItem, settings, settingsPanel, settingsTabs, temperatureLine, temperatureRound, temperatureInfo, temperatureButton, temperatureSaveButton, temperaturePowerButton, sliders, swtch, } = dom;
 
 selectboxSelected.addEventListener('click', (e) => {
     selectbox.classList.toggle("open");
@@ -194,8 +195,10 @@ function changeTemperature() {
     let position = 0;
     let range = 0;
     let change = 0;
-    temperatureButton.onmouseover = () =>{ mouseover = true;
-    mousedown = false;};
+    temperatureButton.onmouseover = () => {
+        mouseover = true;
+        mousedown = false;
+    };
     temperatureButton.onmouseout = () => mouseover = false;
     temperatureButton.onmouseup = (e) => mousedown = false;
     temperatureButton.onmousedown = (e) => {
@@ -314,9 +317,9 @@ watchSlider(sliders.lights);
 watchSlider(sliders.humidity);
 
 function changeSwitch(activeTab, isOff) {
-    if(isOff) {
+    if (isOff) {
         swtch[activeTab].classList.add("off");
-    } else{
+    } else {
         swtch[activeTab].classList.remove("off");
     }
     roomsData[activeRoom][`${activeTab}Off`] = isOff;
@@ -329,3 +332,55 @@ swtch.lights.addEventListener("click", () => {
     const isOff = !swtch.lights.matches(".off");
     changeSwitch(activeTab, isOff);
 })
+
+/*-------*/
+
+const pointer = document.querySelector('.selectbox__pointer');
+pointer.addEventListener('click', (e) => {
+    document.querySelector(".mobile__content").classList.toggle("none");
+    document.querySelector(".mobile__search").classList.toggle("block");
+})
+
+const apiKey = "d2365d41895006ee7e682e6acebef306";
+const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+const searchBox = document.querySelector('.mobile__search-container input');
+const searchBtn = document.querySelector('.mobile__search-container button');
+const weatherIcon = document.querySelector(`.weather__icon`);
+
+console.log(searchBox, searchBtn);
+
+async function checkWeather(city) {
+    const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+    if(response.status === 404){
+        document.querySelector(`.mobile__search-error`).style.display = 'block';
+        document.querySelector(`.weather`).style.display = 'none';
+    } else{
+        const data = await response.json();
+
+    document.querySelector(`.weather__city`).innerHTML = data.name;
+    document.querySelector(`.weather__temp`).innerHTML = Math.round(data.main.temp) + "&deg;C";
+    document.querySelector(`.weather__humidity`).innerHTML = data.main.humidity + "%";
+    document.querySelector(`.weather__wind`).innerHTML = data.wind.speed + "km/h";
+
+    if (data.weather[0].main === "Clouds") {
+        weatherIcon.src = "img/weather/images/clouds.png";
+    } else if (data.weather[0].main === "Clear") {
+        weatherIcon.src = "img/weather/images/clear.png";
+    } else if (data.weather[0].main === "Rain") {
+        weatherIcon.src = "img/weather/images/rain.png";
+    } else if (data.weather[0].main === "Drizzle") {
+        weatherIcon.src = "img/weather/images/drizzle.png";
+    } else if (data.weather[0].main === "Mist") {
+        weatherIcon.src = "img/weather/images/mist.png";
+    }
+
+    document.querySelector('.weather').style.display = 'block';
+    document.querySelector('.mobile__search-error').style.display = 'none';
+    }
+}
+    searchBtn.addEventListener("click", () => {
+        checkWeather(searchBox.value);
+    });
+
+

@@ -14,6 +14,7 @@
         <div class="mobile__container">
             <header class="mobile__header">
                 <img src="img/top.svg">
+                <img class="selectbox__pointer" src="img/map-pointer.png">
             </header>
             <main class="mobile__content">
                 <div class="mobile__selectbox selectbox">
@@ -115,7 +116,7 @@
                                 <i class="ic_humidity"></i>
                             </div>
                             <div class="slider">
-                                <div  id="humidity-slider" class="slider__progress">
+                                <div id="humidity-slider" class="slider__progress">
                                     <span>45</span>%
                                 </div>
                             </div>
@@ -126,6 +127,37 @@
                     </div>
                 </div>
             </main>
+            <div class="mobile__search">
+                <div class="mobile__search-container">
+                    <input type="text" placeholder="Enter city name"
+                        spellcheck="false">
+                    <button><img src="img/search.svg"></button>
+                </div>
+                <div class="mobile__search-error">
+                    <p>Invalid city name</p>
+                </div>
+                <div class="mobile__search-weather weather">
+                    <img class="weather__icon" src="img/weather/images/rain.png">
+                    <h1 class="weather__temp">23&deg;C</h1>
+                    <h2 class="weather__city">London, UK</h2>
+                    <div class="weather__details">
+                        <div class="weather__details-col">
+                            <img src="img/weather/images/humidity.png">
+                            <div>
+                                <p class="weather__humidity">50%</p>
+                                <p>Humidity</p>
+                            </div>
+                        </div>
+                        <div class="weather__details-col">
+                            <img src="img/weather/images/wind.png">
+                            <div>
+                                <p class="weather__wind">15 km/h</p>
+                                <p>Wind speed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <footer class="mobile__footer">
                 <img src="img/bottom.svg">
             </footer>
